@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -118,3 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# When adding this below line also add the "core" app in above INSTALLED_APPS above here in this file
+# Also the below line is because we have created our own User model that would also be the DB model
+# We run -> docker-compose run app sh -c "python manage.py makemigrations core" ->
+# https://docs.djangoproject.com/en/3.1/topics/migrations/
+AUTH_USER_MODEL = 'core.User'
